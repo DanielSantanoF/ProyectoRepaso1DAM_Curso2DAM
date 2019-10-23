@@ -8,6 +8,6 @@ Datos para acceder a la aplicación:
 
 Ejercicio realizado por grupos cooperativos en clase
 Realizado por:
-José Antonio Llamas
-Miguel Lázaro
-Daniel Santano
+José Antonio Llamas,
+Miguel Lázaro,
+Daniel Santano,
