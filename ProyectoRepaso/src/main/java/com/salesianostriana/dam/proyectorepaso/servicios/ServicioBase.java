@@ -8,10 +8,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author Daniel Santano Fernández
  * Servicio base
  */
+
 public abstract class ServicioBase<T, ID, R extends JpaRepository<T, ID>> {
 
 	@Autowired
-	R repositorio;
+	protected R repositorio;
 	
 	public T save(T t) {
 		return repositorio.save(t);

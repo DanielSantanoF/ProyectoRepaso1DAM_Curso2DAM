@@ -3,38 +3,58 @@
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Reservar un Aula</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-<link href="css/" rel="stylesheet" type="text/css" th:href="@{/css/}">
+<link rel="stylesheet" href="../../static/css/styles.css"
+	th:href="@{/css/styles.css}" />
+<link href="css/" rel="stylesheet" type="text/css"
+	th:href="@{/css/Footer.css}">
 
 </head>
-<body>
+
+<body
+	th:style="'background: url(/img/fondo.jpeg) no-repeat center center fixed;'">
 	<div th:replace="Navbar.html :: navbar"></div>
+	<div class="titulos text-center mt-5">
+		<h3 th:text="#{formRes.titulo}">RESERVAR AULA</h3>
+		<h2 th:text="#{formRes.titulo2}">ELEGIR FECHA</h2>
+	</div>
 
-	<form method="POST" th:action="@{/usuario/reservarHora}"
-		th:object="${nuevaReserva}">
-		<div class="form-group">
-			<h3>Reservar aula</h3>
-			<label>Fecha</label> <input type="date" th:field="*{fecha}"
-				value="2019-09-21" min="2019-09-21" max="2019-12-31">
+	<div class="container pt-3">
+		<div class="row justify-content-sm-center">
+			<div class="col-10">
+
+				<div class="card border-info text-left">
+					<div class="card-body">
+						<form method="POST" th:action="@{/usuario/reservarHora}"
+							th:object="${nuevaReserva}">
+
+							<div class="form-group">
+								<label th:text="#{formRes.fecha}">Fecha</label> <input
+									type="date" th:field="*{fecha}" required>
+							</div>
+							<div class="form-check">
+								<input id="telf" name="telf" type="hidden" th:field="*{espacio}"
+									class="form-control input-md" readonly>
+							</div>
+
+							<button class="btn btn-lg btn-primary btn-block mb-1"
+								type="submit" th:text="#{formRes.reservar2}">Consultar
+								Horas</button>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
-
-		<div class="form-check">
-			<label class="form-check-label" for="exampleCheck1">Aula</label> <input
-				id="telf" name="telf" type="text" th:field="*{espacio}"
-				class="form-control input-md" readonly>
-		</div>
-
-		<button type="submit">Reservar</button>
-
-
-	</form>
+	</div>
 
 
 	<div th:replace="Footer.html :: footer"></div>
+
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -53,5 +73,5 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="../static/js/I18N.js" th:src="@{/js/I18N.js}"></script>
 </html>

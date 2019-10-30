@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.salesianostriana.dam.proyectorepaso.model.Centro;
@@ -28,6 +29,7 @@ public class ProyectoRepasoApplication {
 		SpringApplication.run(ProyectoRepasoApplication.class, args);
 	}
 
+	@Profile("dev")
 	@Bean
 	public CommandLineRunner init(UsuarioServicio servicio, CentroServicio cservicio, EspacioServicio eservicio,
 			ReservaServicio rservicio, FestivoServicio fservicio, BCryptPasswordEncoder passwordEncoder) {

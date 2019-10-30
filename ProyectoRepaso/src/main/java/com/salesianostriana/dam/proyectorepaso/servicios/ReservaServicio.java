@@ -22,26 +22,11 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 	private List<LocalTime> horarios = new ArrayList<LocalTime>(Arrays.asList(LocalTime.of(8, 0), LocalTime.of(9, 0),
 			LocalTime.of(10, 0), LocalTime.of(11, 30), LocalTime.of(12, 30), LocalTime.of(13, 30)));
 
-	/**
-	 * Atributos de la clase
-	 */
 	ReservaRepositorio reservaRepositorio;
-
-	/**
-	 * Contructor de la clase
-	 * 
-	 * @param reservaRepositorio
-	 */
-	public ReservaServicio(ReservaRepositorio reservaRepositorio) {
-		super();
-		this.reservaRepositorio = reservaRepositorio;
-	}
 
 	public List<LocalTime> getHorarios() {
 		return horarios;
 	}
-
-	
 
 	/**
 	 * 
@@ -59,7 +44,9 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 	public List<LocalTime> buscarHorasDisponibles(List<LocalTime> horarios, LocalDate fecha, Espacio espacio) {
 		List<LocalTime> horarios1 = horarios;
 		List<LocalTime> horasOcupadas = new ArrayList<>();
-		for (Reserva reserva2 : reservaRepositorio.findByFechaAndEspacio(fecha, espacio)) {
+		// for (Reserva reserva2 : reservaRepositorio.findByFechaAndEspacio(fecha,
+		// espacio)) {
+		for (Reserva reserva2 : repositorio.findByFechaAndEspacio(fecha, espacio)) {
 
 			horasOcupadas.add(reserva2.getHora());
 

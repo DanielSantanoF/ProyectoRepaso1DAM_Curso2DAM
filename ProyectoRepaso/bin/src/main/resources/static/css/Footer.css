@@ -1,15 +1,25 @@
-.piePagina{
-    border: none;
-    border-radius: 0%;
-    margin: 0%;
-    background: none !important;
-  }
-  body {
-    padding-top: 3.5rem;
-    background-repeat: repeat;
-    color: grey;
-  }
-  h1{
-      text-align: center;
-      font-size: 60px;
-  }
+h1 {
+	text-align: center;
+	font-size: 25px;
+}
+
+html {
+	min-height: 100%;
+	position: relative;
+}
+
+body {
+	margin: 0;
+	margin-bottom: 40px;
+	min-height: 100%;
+}
+
+footer {
+	background-color: black;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	color: white;
+}
+

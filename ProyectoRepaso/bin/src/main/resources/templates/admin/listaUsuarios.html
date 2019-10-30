@@ -23,21 +23,32 @@
 <!--Mis estilos-->
 <link rel="stylesheet" href="../../static/css/styles.css"
 	th:href="@{/css/styles.css}" />
+<link href="css/" rel="stylesheet" type="text/css"
+	th:href="@{/css/Footer.css}">
 
 </head>
 
-<body>
+<body
+	th:style="'background: url(/img/fondo.jpeg) no-repeat center center fixed;'">
 	<div th:replace="Navbar.html :: navbar"></div>
-	<ul class="navbar-nav my-2 my-lg-0">
-		<li><a
-			class="btn btn-dark btn-outline-warning mr-sm-2 mt-2 float-right"
-			th:href="@{/admin/nuevoUsuarioAdmin}" th:text="#{listUsuarios.anyadir}">Añadir usuario</a></li>
-	</ul>
+
+	<div class="titulos text-center mt-5">
+		<h3 th:text="#{listUsuarios.titulo}">USUARIOS REGISTRADOS</h3>
+	</div>
+
+	<div id="menu" class="opcionesMenu mr-5">
+		<button class="btn btn-primary mr-5 mb-2 bg-light float-right">
+			<a th:href="@{/admin/nuevoUsuarioAdmin}"
+				th:text="#{listUsuarios.anyadir}">Añadir usuario</a>
+		</button>
+		|
+	</div>
+
 
 	<div class="row">
 		<div class="col">
-			<h2 th:text="#{listUsuarios.nombreLista}">Listado de Usuarios</h2>
-			<table id="usuariosTabla" class="table table-striped">
+			<table id="usuariosTabla"
+				class="table table-hover w-75 mx-auto mt-5 ">
 				<thead>
 					<tr>
 						<th th:text="#{listUsuarios.nombre}">Nombre</th>
@@ -55,12 +66,13 @@
 							th:text="${#temporals.format(usuario.fechaalta, 'dd-MMM-yyyy')}"></td>
 						<td th:text="${usuario.centro.nombre}"></td>
 						<td><a href="#"
-							th:href="@{/admin/editarUsuario/{id}(id=${usuario.id})}" th:text="#{listUsuarios.editar}">Editar</a>
-							| <a href="#"
+							th:href="@{/admin/editarUsuario/{id}(id=${usuario.id})}"
+							th:text="#{listUsuarios.editar}">Editar</a> | <a href="#"
 							th:href="@{/admin/desactivarUsuario/{id}(id=${usuario.id})}"
-							onclick="return confirm('¿SEGURO QUE DESEA DESACTIVAR ESTE USUARIO?');" th:text="#{listUsuarios.desactivar}">Desactivar</a>
-							| <a href="#" th:href="@{/admin/reservaUsuarioEspecifico/{id}(id=${usuario.id})}" th:text="#{listUsuarios.reservas}">Reservas</a>
-						</td>
+							onclick="return confirm('¿SEGURO QUE DESEA DESACTIVAR ESTE USUARIO?');"
+							th:text="#{listUsuarios.desactivar}">Desactivar</a> | <a href="#"
+							th:href="@{/admin/reservaUsuarioEspecifico/{id}(id=${usuario.id})}"
+							th:text="#{listUsuarios.reservas}">Reservas</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -96,5 +108,6 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../static/js/I18N.js" th:src="@{/js/I18N.js}"></script>
 </body>
 </html>

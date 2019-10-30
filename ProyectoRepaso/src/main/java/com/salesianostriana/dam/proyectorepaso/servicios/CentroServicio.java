@@ -14,6 +14,5 @@ import com.salesianostriana.dam.proyectorepaso.repositorios.CentroRepositorio;
  */
 @Service
 public class CentroServicio extends ServicioBase<Centro, Long, CentroRepositorio>{
-
 	
 }

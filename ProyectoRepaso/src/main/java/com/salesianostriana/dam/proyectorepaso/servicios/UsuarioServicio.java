@@ -3,7 +3,6 @@ package com.salesianostriana.dam.proyectorepaso.servicios;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -23,18 +22,6 @@ public class UsuarioServicio extends ServicioBase<Usuario, Long, UsuarioReposito
 
 	BCryptPasswordEncoder passwordEncoder;
 	UsuarioRepositorio usuarioRepository;
-	@Autowired
-	UsuarioServicio usuarioServicio;
-
-	/**
-	 * Constructor de la clase
-	 * 
-	 * @param usuarioRepository
-	 */
-	public UsuarioServicio(UsuarioRepositorio usuarioRepository) {
-		super();
-		this.usuarioRepository = usuarioRepository;
-	}
 
 	/**
 	 * Metodo para buscar por email en usuarios
@@ -75,7 +62,7 @@ public class UsuarioServicio extends ServicioBase<Usuario, Long, UsuarioReposito
 	public void validarRegistro(Usuario usuario) {
 		usuario.setRegistroConfirmado(true);
 		usuario.setFechaalta(LocalDate.now());
-		usuarioServicio.edit(usuario);
+		edit(usuario);
 	}
 
 	/**
@@ -105,7 +92,7 @@ public class UsuarioServicio extends ServicioBase<Usuario, Long, UsuarioReposito
 		Usuario usuario;
 		usuario = this.findById(id);
 		usuario.setActivo(false);
-		usuarioServicio.edit(usuario);
+		edit(usuario);
 	}
 
 	/**
@@ -124,6 +111,6 @@ public class UsuarioServicio extends ServicioBase<Usuario, Long, UsuarioReposito
 	 */
 	public void activarUsuario(Usuario usuario) {
 		usuario.setActivo(true);
-		usuarioServicio.edit(usuario);
+		edit(usuario);
 	}
 }

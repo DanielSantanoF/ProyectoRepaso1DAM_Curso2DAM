@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.proyectorepaso.repositorios;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -19,6 +20,8 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
 	 * @return email buscado
 	 */
 	Usuario findFirstByEmail(String email);
+	
+	
 
 	/**
 	 * Busca los usuarios por email
