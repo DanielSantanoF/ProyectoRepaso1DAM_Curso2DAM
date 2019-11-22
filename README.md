@@ -17,7 +17,7 @@ multiplataforma del primer curso(1ºDAM)
 
 #### Ejercicio realizado por grupos cooperativos en clase
 ##### Realizado por:
-..* [José Antonio Llamas Álvarez](https://github.com/jallamas "José Antonio Llamas perfil de GitHub")
-..* Miguel Lázaro Domínguez
-..* José Luis Díez Cortes (En Tests)
-..* Daniel Santano Fernández
+* [José Antonio Llamas Álvarez](https://github.com/jallamas "José Antonio Llamas perfil de GitHub")
+* Miguel Lázaro Domínguez
+* José Luis Díez Cortes (En Tests)
+* Daniel Santano Fernández
